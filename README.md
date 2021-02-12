@@ -42,7 +42,9 @@ Problemática:
 - Recursos de hardware (Capacidad de ejecución - Menos memoria, procesador más debil)
 ```
 
-## Virtualizacion
+## Segunda Clase
+
+### Virtualizacion
 
 ### Maquinas Virtuales(Virtual Machines)
 
