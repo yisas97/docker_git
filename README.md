@@ -79,3 +79,24 @@ se basan en el kernel del sistema operativo host (que puede considerarse la font
 y algunas API ligeras del sistema operativo y servicios que se ejecutan en modo de usuario.
 ```
 
+
+## 3ra Clase
+
+### Que es y como funciona Docker
+
+![alt tag](https://ualmtorres.github.io/SeminarioDockerPresentacion/images/DockerEngine.png)
+
+## 4ta clase
+
+Comandos iniciales: 
+```
+$ docker run hello-world (corro el contenedor hello-world)
+$ docker ps (muestra los contenedores activos)
+$ docker ps -a (muestra todos los contenedores)
+$ docker inspect <containe ID> (muestra el detalle completo de un contenedor)
+$ docker inspect <name> (igual que el anterior pero invocado con el nombre)
+$ docker run –-name hello-platzi hello-world (le asigno un nombre custom “hello-platzi”)
+$ docker rename hello-platzi hola-platzy (cambio el nombre de hello-platzi a hola-platzi)
+$ docker rm <ID o nombre> (borro un contenedor)
+$ docker container prune (borro todos lo contenedores que esten parados)
+```
