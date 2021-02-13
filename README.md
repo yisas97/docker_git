@@ -104,4 +104,51 @@ $ docker container prune (borro todos lo contenedores que esten parados)
 
 ### Ciclo de Vidad de un contenedor
 
-Cuando tu corres un contenedor, solo corre un proceso del Sistema Operativo en el cual seria el proceso principal. Cuando un proceso principal 
+Cuando tu corres un contenedor, solo corre un proceso del Sistema Operativo en el cual seria el proceso principal. 
+
+#### Main Proceso
+```
+Determina la vida del contenedor, un contenedor corre siempre y cuando su proceso este corriendo
+```
+#### Sub process
+```
+Un contenedor puede tener o lanzar procesos alternos al main process, si estos fallan el contenedor va a seguir encedido a menos que falle el main.
+```
+
+#### Example:
+```
+- Batch como Main process
+- Agujero negro (/dev/null) como Main process
+```
+```
+docker run --name alwaysup -d ubuntu tail -f /dev/null 
+
+Esto regresa el ID del contenedor
+```
+Te puedes conectar al contenedor y hacer cosas dentro del él con el siguiente comando (sub proceso)
+
+```
+docker exec -it alwaysup bash
+```
+Se puede matar un Main process desde afuera del contenedor, esto se logra conociendo el id del proceso principal del contenedor que se tiene en la maquina. Para saberlo se ejecuta los siguientes comandos:
+
+```
+docker inspect --format '{{.State.Pid}}' alwaysup
+```
+_El output del comando es el process ID (2474) _
+
+Para matar el proceso principal del contenedor desde afuera se ejecuta el siguiente comando (solo funciona en linux
+```
+Kill  2474
+```
+En caso de que no te permita
+```
+docker kill alwaysup
+```
+En caso de debian
+``` 
+sudo kill -9 "$(sudo docker inspect --format '{{.State.Pid}}' alwaysup)"``
+```
+
+
+
