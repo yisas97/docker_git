@@ -233,6 +233,25 @@ Finalmente, introducirías el comando para ejecutar poniendo la ruta local de la
 docker run -d --name db --v ~/mongodata:/data/db mongo
 ```
 
+## Clase 8
+
+### Volumenes:
+Otra forma de entrar a los archivos pero con mayor seguridad es con el comando volume en el docker. Donde en la maquina tu no puedes modificarlo libremente a menos que sea un usuario docker.
+
+_Comando_
+
+```
+$ docker volume ls (listo los volumes)
+$ docker volume create dbdata (creo un volume)
+$ docker run -d --name db --mount src=dbdata,dst=/data/db mongo (corro la BBDD y monto el volume)
+$ docker inspect db (veo la información detallada del contenedor)
+$ mongo (me conecto a la BBDD)
+
+shows dbs (listo las BBDD)
+use prueba ( creo la BBDD prueba)
+db.users.insert({“nombre”:“jesus”}) (inserto un nuevo dato)
+db.users.find() (veo el dato que cargué)
+```
 
 
 
