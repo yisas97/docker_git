@@ -95,8 +95,13 @@ $ docker ps (muestra los contenedores activos)
 $ docker ps -a (muestra todos los contenedores)
 $ docker inspect <containe ID> (muestra el detalle completo de un contenedor)
 $ docker inspect <name> (igual que el anterior pero invocado con el nombre)
-$ docker run –-name hello-platzi hello-world (le asigno un nombre custom “hello-platzi”)
-$ docker rename hello-platzi hola-platzy (cambio el nombre de hello-platzi a hola-platzi)
+$ docker run –-name hello-jesus hello-world (le asigno un nombre custom “hello-jesus”)
+$ docker rename hello-jesus hola-platzy (cambio el nombre de hello-platzi a hola-jesus)
 $ docker rm <ID o nombre> (borro un contenedor)
 $ docker container prune (borro todos lo contenedores que esten parados)
 ```
+## 5ta Clase
+
+### Ciclo de Vidad de un contenedor
+
+Cuando tu corres un contenedor, solo corre un proceso del Sistema Operativo en el cual seria el proceso principal. Cuando un proceso principal 
